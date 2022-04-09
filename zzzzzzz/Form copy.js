@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, TextInput, Image } from 'react-native'
+import { View, Text, TextInput, Image,StyleSheet } from 'react-native'
 import Input from './Input'
 import Button from './Button'
 import Checkbox from './Checkbox'
@@ -47,22 +47,10 @@ const Form = ({ f, e, p, cP, m, c, style, fullname, setFullname,
 
   return (
     <View
-      style={[{
-        height: '100%',
-        transform: [{ scaleY: size }],
-        backgroundColor: '#f0f0f0', width: '100%',
-        borderWidth: .3, padding: 20, borderRadius: 5,
-        shadowColor: "#000",
-        shadowOpacity: .6,
-        shadowRadius: 6,
-        shadowOffset: {
-          width: 1,
-          height: 2
-        }
-      }, { ...style }]} >
+      style={[styles.container, style,{transform: [{ scaleY: size }],}]} >
 
-      {f && <View style={{ marginBottom: 19 }} >
-        <Text style={{ alignSelf: 'flex-start', marginBottom: 10 }} >نام</Text>
+      {f && <View style={styles.viewInput} >
+        <Text style={styles.textinput} >نام</Text>
         <Input
           textContentType="name"
           autoComplete="name"
@@ -72,23 +60,15 @@ const Form = ({ f, e, p, cP, m, c, style, fullname, setFullname,
           value={fullname}
           onChangeText={(text) => setFullname(text)}
           onBlur={() => set_Fullname(true)}
-          style={{
-            shadowColor: "#000",
-            shadowOpacity: .4,
-            shadowRadius: 4,
-            shadowOffset: {
-              width: 1,
-              height: 2
-            }
-          }}
+          style={styles.input}
         />
-        {_fullname && !flm && <Text style={{ alignSelf: 'flex-start', marginBottom: 10, color: 'red' }} >
+        {_fullname && !flm && <Text style={[styles.textinput,{color:'red'}]} >
           {newObj.fullname}
         </Text>}
       </View>}
 
-      {e && <View style={{ marginBottom: 19 }} >
-        <Text style={{ alignSelf: 'flex-start', marginBottom: 10 }} >ایمیل</Text>
+      {e && <View style={styles.viewInput} >
+        <Text style={styles.textinput} >ایمیل</Text>
         <Input p=" ایمیل "
           textContentType="emailAddress"
           autoComplete="email"
@@ -98,23 +78,15 @@ const Form = ({ f, e, p, cP, m, c, style, fullname, setFullname,
           value={email}
           onChangeText={(text) => setEmail(text)}
           onBlur={() => set_Email(true)}
-          style={{
-            shadowColor: "#000",
-            shadowOpacity: .4,
-            shadowRadius: 4,
-            shadowOffset: {
-              width: 1,
-              height: 2
-            }
-          }}
+          style={styles.input}
         />
-        {_email && !eml && <Text style={{ alignSelf: 'flex-start', marginBottom: 10, color: 'red' }} >
+        {_email && !eml && <Text style={[styles.textinput,{color:'red'}]} >
           {newObj.email}
         </Text>}
       </View>}
 
-      {p && <View style={{ marginBottom: 19 }} >
-        <Text style={{ alignSelf: 'flex-start', marginBottom: 10 }} >رمز عبور</Text>
+      {p && <View style={styles.viewInput} >
+        <Text style={styles.textinput} >رمز عبور</Text>
         <Input p=" رمز عبور "
           textContentType="password"
           autoComplete="password"
@@ -124,23 +96,15 @@ const Form = ({ f, e, p, cP, m, c, style, fullname, setFullname,
           value={password}
           onChangeText={(text) => setPassword(text)}
           onBlur={() => set_Password(true)}
-          style={{
-            shadowColor: "#000",
-            shadowOpacity: .4,
-            shadowRadius: 4,
-            shadowOffset: {
-              width: 1,
-              height: 2
-            }
-          }}
+          style={styles.input}
         />
-        {_password && !psd && <Text style={{ alignSelf: 'flex-start', marginBottom: 10, color: 'red' }} >
+        {_password && !psd && <Text style={[styles.textinput,{color:'red'}]} >
           {newObj.password}
         </Text>}
       </View>}
 
-      {cP && <View style={{ marginBottom: 19 }} >
-        <Text style={{ alignSelf: 'flex-start', marginBottom: 10 }} >تکرار رمز عبور</Text>
+      {cP && <View style={styles.viewInput} >
+        <Text style={styles.textinput} >تکرار رمز عبور</Text>
         <Input
           textContentType="password"
           autoComplete="password"
@@ -151,23 +115,15 @@ const Form = ({ f, e, p, cP, m, c, style, fullname, setFullname,
           onChangeText={(text) => setConfirmPassword(text)}
           p=" تکرار رمز عبور "
           onBlur={() => set_ConfirmPassword(true)}
-          style={{
-            shadowColor: "#000",
-            shadowOpacity: .4,
-            shadowRadius: 4,
-            shadowOffset: {
-              width: 1,
-              height: 2
-            }
-          }}
+          style={styles.input}
         />
-        {_confirmPassword && !cfpsd && <Text style={{ alignSelf: 'flex-start', marginBottom: 10, color: 'red' }} >
+        {_confirmPassword && !cfpsd && <Text style={[styles.textinput,{color:'red'}]} >
           {newObj.confirmPassword}
         </Text>}
       </View>}
 
-      {m && <View style={{ marginBottom: 19 }} >
-        <Text style={{ alignSelf: 'flex-start', marginBottom: 10 }} >ارسال پیام</Text>
+      {m && <View style={styles.viewInput} >
+        <Text style={styles.textinput} >ارسال پیام</Text>
         <Input
           multiline
           autoCorrect={true}
@@ -175,25 +131,15 @@ const Form = ({ f, e, p, cP, m, c, style, fullname, setFullname,
           onChangeText={(text) => setMessage(text)}
           p="ارسال پیام"
           onBlur={() => set_Message(true)}
-          style={{
-            height: 100,
-            shadowColor: "#000",
-            shadowOpacity: .4,
-            shadowRadius: 4,
-            shadowOffset: {
-              width: 1,
-              height: 2
-            }
-            ,
-          }} />
-        {_message && !msg && <Text style={{ alignSelf: 'flex-start', marginBottom: 10, color: 'red' }} >
+          style={styles.messageInput} />
+        {_message && !msg && <Text style={[styles.textinput,{color:'red'}]} >
           {newObj.message}
         </Text>}
       </View>}
 
 
 
-      {c && <View style={{ flexDirection: 'row', alignSelf: 'flex-start', width: 150 }}>
+      {c && <View style={styles.viewCheckbox}>
         <Checkbox onPress={() => setShow(!show)} />
         <Text onPress={(e) => console.log(e.nativeEvent.text)} style={{ marginLeft: 11 }} >موافقط با قوانین</Text>
       </View>}
@@ -201,32 +147,20 @@ const Form = ({ f, e, p, cP, m, c, style, fullname, setFullname,
 
 
       {captcha &&
-        <View style={{
-          flexDirection: "row", alignSelf: 'flex-start',
-          justifyContent: "space-between", width: 250
-        }}>
+        <View style={styles.viewCaptcha}>
           <Image source={{ uri: `http://${host}/captcha.png/${rand}` }}
-            style={{
-              borderRadius: 2, padding: 5, backgroundColor: "#412",
-              marginTop: 25, width: 105, height: 40
-            }} />
+            style={styles.imageCaptcha} />
           <Icon name="refresh" color="#333399f0" size={22}
             onPress={() => setShow2(!show2)}
             style={{ marginTop: 35 }} />
           <TextInput placeholder="کد امنیتی" autoCompleteType="number"
-            style={{
-              borderRadius: 2, marginTop: 26,
-              textAlign: 'right', padding: 7, width: 85, height: 37, borderWidth: 1
-            }} value={captcha} onChangeText={text => setCaptcha(text)} />
+            style={styles.TextInput} value={captcha} onChangeText={text => setCaptcha(text)} />
         </View>
       }
 
 
       {children &&
-        <View style={{
-          flexDirection: 'row', alignSelf: 'flex-start',
-          marginTop: 18, marginLeft: 5
-        }}>
+        <View style={styles.viewChildren}>
           <Text onPress={(e) => console.log(e.nativeEvent.text)}
             style={{ color: '#0cf' }} >{children}</Text>
         </View>}
@@ -234,7 +168,7 @@ const Form = ({ f, e, p, cP, m, c, style, fullname, setFullname,
 
       <Button onPress={flm && eml && psd && cfpsd && msg &&
         show == true ? onPress : () => alert('kkataa')}
-        style={{ marginTop: 30, marginBottom: 8, width: 220, alignSelf: 'center' }} >
+        style={styles.btn} >
         click
       </Button>
 
@@ -244,3 +178,87 @@ const Form = ({ f, e, p, cP, m, c, style, fullname, setFullname,
 }
 // {/*  setCheckbox(e.target._internalFiberInstanceHandleDEV.memoizedProps.checked) */}
 export default Form
+const styles = StyleSheet.create({
+  btn: {
+    marginTop: 30,
+    marginBottom: 8,
+    width: 220,
+    alignSelf: 'center',
+  },
+  viewChildren: {
+    flexDirection: 'row',
+    alignSelf: 'flex-start',
+    marginTop: 18,
+    marginLeft: 5,
+  },
+  TextInput: {
+    borderRadius: 2,
+    marginTop: 26,
+    textAlign: 'right',
+    padding: 7,
+    width: 85,
+    height: 37,
+    borderWidth: 1,
+  },
+  imageCaptcha: {
+    borderRadius: 2,
+    padding: 5,
+    backgroundColor: "#412",
+    marginTop: 25,
+    width: 105,
+    height: 40,
+  },
+  viewCaptcha: {
+    flexDirection: "row",
+    alignSelf: 'flex-start',
+    justifyContent: "space-between",
+    width: 250,
+  },
+  viewCheckbox: {
+    flexDirection: 'row',
+    alignSelf: 'flex-start',
+    width: 150,
+  },
+  textinput: {
+    alignSelf: 'flex-start',
+    marginBottom: 10,
+  },
+  container: {
+    height: '100%',
+    backgroundColor: '#f0f0f0',
+    width: '100%',
+    borderWidth: .3,
+    padding: 20,
+    borderRadius: 5,
+    shadowColor: "#000",
+    shadowOpacity: .6,
+    shadowRadius: 6,
+    shadowOffset: {
+          width: 1,
+    height: 2
+        }
+  },
+  messageInput: {
+    height: 100,
+    shadowColor: "#000",
+    shadowOpacity: .4,
+    shadowRadius: 4,
+    shadowOffset: {
+              width: 1,
+    height: 2,
+    },
+  },
+  input: {
+    shadowColor: "#000",
+    shadowOpacity: .4,
+    shadowRadius: 4,
+    shadowOffset: {
+              width: 1,
+    height: 2
+            
+          },
+  },
+  viewInput: {
+    marginBottom: 19,
+  },
+})

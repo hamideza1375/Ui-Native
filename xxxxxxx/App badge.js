@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { SafeAreaView, View, Text } from 'react-native';
+import React from 'react';
+import { SafeAreaView, View, StyleSheet } from 'react-native';
 import Badge from './zzzzzzz/Badge'
 import Button from './zzzzzzz/Button'
 
@@ -13,9 +13,9 @@ function App() {
     <SafeAreaView>
 
       <View style={{ marginTop: 99 }} >
-        <View style={{ position: 'relative' }} >
-          <Badge top={-5} left={148} text={"2"} />
-          <Button style={{ width: 80, alignSelf: 'center' }} >click</Button>
+        <View style={{ position: 'relative', width:94,alignSelf:'center' }} >
+          <Badge top={-5} text={"2"} />
+          <Button style={styles.btn} >click</Button>
         </View>
       </View>
 
@@ -26,3 +26,10 @@ function App() {
 
 
 export default App;
+
+const styles = StyleSheet.create({
+  btn: {
+    width: 80,
+    alignSelf: 'center',
+  },
+})

@@ -1,11 +1,9 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 
 const Badge = ({ color, text, top, left, right, bottom, style }) => {
     return (
-        <View style={[{
-            width: 15, height: 15,
-
+        <View style={[styles.viewBadge, {
             backgroundColor: color ?
                 (color == 'red') && '#f33' ||
                 (color == 'blue') && '#22f' ||
@@ -14,14 +12,10 @@ const Badge = ({ color, text, top, left, right, bottom, style }) => {
                 (color == 'black') && '#555' ||
                 color
                 :
-                "#f33"
-            ,
-            borderRadius: 90,
-            justifyContent: 'center', alignItems: 'center',
-            top: top, left: left, right: right,
-             bottom: bottom, position: 'absolute', zIndex:10
-        }, { ...style }]} >
-            <Text style={{ color: 'white', fontSize: 12.6, fontWeight: '900' }} >
+                "#f33",
+        },
+        { top: top, left: left, right: right, bottom: bottom }, { ...style }]} >
+            <Text style={styles.textBadge} >
                 {text}
             </Text>
         </View>
@@ -29,3 +23,19 @@ const Badge = ({ color, text, top, left, right, bottom, style }) => {
 }
 
 export default Badge
+const styles = StyleSheet.create({
+    textBadge: {
+        color: 'white',
+        fontSize: 12.6,
+        fontWeight: '900',
+    },
+    viewBadge: {
+        width: 15,
+        height: 15,
+        borderRadius: 90,
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        zIndex: 10,
+    },
+})

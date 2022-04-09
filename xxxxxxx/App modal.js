@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SafeAreaView, View, Text } from 'react-native';
-import Modal from './Modal'
+import Modal from './zzzzzzz/Modal'
 import Button from './zzzzzzz/Button'
 import Card from './zzzzzzz/Card'
 

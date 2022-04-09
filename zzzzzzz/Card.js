@@ -198,12 +198,13 @@ function Card(prop) {
                 bgcolor == 'white' && '#fff' ||
                 bgcolor
               ,
-              width: '95%',
+              width: '95%',position:'relative',
               alignSelf: 'center'
             }, { ...style }]}>
             <View style={{ padding: 12, alignItems: 'flex-start', }} >
               {header &&
-                <View style={{ width: '100%', paddingHorizontal: 2, paddingVertical: 6 }}>
+                <View style={{ width: '100%', paddingHorizontal: 2,
+                 paddingVertical: 6 }}>
                   <Text
                     style={{
                       color:
@@ -228,7 +229,8 @@ function Card(prop) {
                 </View>
               }
               {body &&
-                <View style={{ padding: 8, width: '100%', flexDirection: 'row' }}>
+                <View style={{ padding: 8, width: '100%',
+                 flexDirection: 'row' }}>
                   <Text style={{
                     color:
                       !color ?
@@ -247,7 +249,12 @@ function Card(prop) {
                   }} >
                     {body}
                   </Text>
-                  <Image source={img} style={{ flexBasis: '20%', marginTop: "-10%", flexBasis: '20%', width: "20%", height: 100, borderRadius: 50 }} />
+                  <Image source={img} style={{ position:'absolute',
+                    flexBasis: '20%',
+                     top:-30,
+                     right: 11,
+                     flexBasis: '20%', width: "20%", height: 100, 
+                     borderRadius: 50 }} />
 
                 </View>
               }
@@ -286,7 +293,7 @@ function Card(prop) {
                   bgcolor == 'black' && 'silver' ||
                   bgcolor
                 ,
-                width: '95%',
+                width: '95%',position:'relative',
                 alignSelf: 'center'
               }, { ...style }]}>
 
@@ -317,7 +324,12 @@ function Card(prop) {
                     }} >
                       {body}
                     </Text>
-                    <Image source={img} style={{ marginTop: "-10%", flexBasis: '20%', width: "20%", height: 100, borderRadius: 50 }} />
+                    <Image source={img} style={{ 
+                      position:'absolute',
+                      top: -30,
+                      right: 11,
+                       flexBasis: '20%',
+                        width: "20%", height: 100, borderRadius: 50 }} />
                   </View>
                 }
                 {footer &&
