@@ -10,7 +10,11 @@ export default handler = {
           }
           else {
             return target[propName]
-          }}
+          }
+        }
+        else {
+          return "نام نباید خالی باشد"
+        }
       }
       if (propName === 'email') {
         if (typeof target[propName] === 'string') {
@@ -26,6 +30,9 @@ export default handler = {
           else {
             return target[propName]
           }}
+          else {
+            return "ایمیل نباید خالی باشد"
+          }
       }
       if (propName === 'password') {
         if (typeof target[propName] === 'string') {
@@ -38,14 +45,22 @@ export default handler = {
           else {
             return target[propName]
           }}
+          else {
+            return "رمز عبور نباید خالی باشد"
+          }
       }
       var conpass = target.password == target.confirmPassword
       if (propName === 'confirmPassword') {
+        if (typeof target[propName] === 'string') {
         if (!conpass)
-          return "khata"
+          return "تکرار رمز باید با رمز عبور برابر باشد"
           else
           return target[propName]
       }
+      else {
+        return "تکرار رمز نباید خالی باشد"
+      }
+    }
       if (propName === 'message') {
         if (typeof target[propName] === 'string') {
   
@@ -58,6 +73,9 @@ export default handler = {
           else {
             return target[propName]
           }}
+          else {
+            return " پیام نباید خالی باشد"
+          }
       }
     }
   }

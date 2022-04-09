@@ -1,29 +1,37 @@
 import React, { useState } from 'react';
-import { SafeAreaView, View, Text } from 'react-native';
-import Modal from './zzzzzzz/Modal'
-import Button from './zzzzzzz/Button'
-import Card from './zzzzzzz/Card'
+import { SafeAreaView, Text, View } from 'react-native';
+import Form from './zzzzzzz/Form';
 
 
 function App() {
 
-  const [show, setShow] = useState(false);
+  const [fullname, setFullname] = useState()
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+  const [confirmPassword, setConfirmPassword] = useState()
+  const [checkbox, setCheckbox] = useState()
+  const [message, setMessage] = useState()
+  const [captcha, setCaptcha] = useState(true)
 
-
+  setCaptcha
   return (
-    <SafeAreaView style={{ width: '100%', alignItems: 'center', marginTop: 80 }} >
-      <Button onPress={() => setShow(true)} >onclik</Button>
-
-      <Modal style={{width:333, height:150}} setShow={setShow} show={show}>
-        <Text style={{fontSize:16, fontWeight:'bold'}} >salam salam</Text>
-        <View>
-          <Card bgcolor="blue" header={'salam salam'}
-           style={{width:300,justifyContent: 'center',alignItems:'center',
-           marginTop:8
-           }} />
-        </View>
-      <Button outline style={{fontSize:14, width:111,marginTop:10}}>Send</Button>
-      </Modal>
+    <SafeAreaView style={{ }}>
+      <View style={{marginVertical:30,}} >
+      <Form
+        f e p cP m c
+        // f e p cP m c
+        captcha={captcha} setCaptcha={setCaptcha} host="192.168.42.34"
+        fullname={fullname} setFullname={setFullname}
+        email={email} setEmail={setEmail}
+        password={password} setPassword={setPassword}
+        confirmPassword={confirmPassword} setConfirmPassword={setConfirmPassword}
+        checkbox={checkbox} setCheckbox={setCheckbox}
+        message={message} setMessage={setMessage}
+        onPress={() => alert('goood')}
+      >
+فراموشی رمز عبور
+      </Form>
+      </View>
 
     </SafeAreaView>
   )

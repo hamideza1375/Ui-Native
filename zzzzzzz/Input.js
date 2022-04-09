@@ -5,16 +5,17 @@ import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
 function Input(prop) {
   return (
-    <View style={[styles.container, { ...prop.style }]} >
+    <View style={[styles.container, prop.style ]} >
       <TextInput
         autoCapitalize='none'
         autoCorrect={false}
+        spellCheck={true}
         {...prop}
         placeholder={prop.p}
         style={[styles.input,{color: prop.color ? prop.color : '#222',}]} />
       {prop.icon && 
       <View style={styles.ViewIcon} >
-      <Icon name={prop.icon} size={prop.iconSize ? prop.iconSize : 22} color={prop.iconColor ? prop.iconColor : "#666"}/>
+      <Icon onPress={prop.iconPress} name={prop.icon} size={prop.iconSize ? prop.iconSize : 22} color={prop.iconColor ? prop.iconColor : "#666"}/>
         </View>
         }
     </View>
