@@ -1,42 +1,24 @@
-import React, { useState } from 'react';
-import { SafeAreaView, Text, View } from 'react-native';
-import Form from './zzzzzzz/Form';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-
-function App() {
-
-  const [fullname, setFullname] = useState()
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
-  const [confirmPassword, setConfirmPassword] = useState()
-  const [checkbox, setCheckbox] = useState()
-  const [message, setMessage] = useState()
-  const [captcha, setCaptcha] = useState(true)
-
-  setCaptcha
+const Flex = () => {
   return (
-    <SafeAreaView style={{ }}>
-      <View style={{marginVertical:30,}} >
-      <Form
-        f e p cP m c
-        // f e p cP m c
-        captcha={captcha} setCaptcha={setCaptcha} host="192.168.42.34"
-        fullname={fullname} setFullname={setFullname}
-        email={email} setEmail={setEmail}
-        password={password} setPassword={setPassword}
-        confirmPassword={confirmPassword} setConfirmPassword={setConfirmPassword}
-        checkbox={checkbox} setCheckbox={setCheckbox}
-        message={message} setMessage={setMessage}
-        onPress={() => alert('goood')}
-      >
-فراموشی رمز عبور
-      </Form>
-      </View>
+    <View style={[styles.container, {
+      // Try setting `flexDirection` to `"row"`.
+      flexDirection: "column"
+    }]}>
+      <View style={{ flex: 1, backgroundColor: "red" }} />
+      <View style={{ flex: 2, backgroundColor: "darkorange" }} />
+      <View style={{ flex: 3, backgroundColor: "green" }} />
+    </View>
+  );
+};
 
-    </SafeAreaView>
-  )
-}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+  },
+});
 
-
-
-export default App;
+export default Flex;
