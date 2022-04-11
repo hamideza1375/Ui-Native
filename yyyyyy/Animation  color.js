@@ -11,7 +11,7 @@ const App = () => {
       toValue: 200,
       duration: 5000,
       easing: Easing.bounce,
-      useNativeDriver: false // <-- Add this
+      useNativeDriver: false 
     }).start();
   };
 
