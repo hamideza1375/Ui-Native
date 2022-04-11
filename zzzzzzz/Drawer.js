@@ -35,8 +35,9 @@ const Drawer = ({ route2, children }) => {
   return (
     <View style={styles.container} >
       <View style={styles.sidebar} >
+        <Text style={styles.TextHeader}></Text>
         <Text style={styles.TextHeader}>Drawer</Text>
-        <Icon onPress={open} name={'bars'} color={'#777'} size={28} style={styles.icon} />
+        <Icon onPress={open} name={'bars'} color={'#777'} size={28}/>
       </View>
 
       <View style={{ flex: 1 }} >
@@ -81,21 +82,17 @@ import styled from 'styled-components/native'
 
 
 const styles = StyleSheet.create({
-  icon: {
-    alignSelf: 'center',
-    marginLeft: 'auto',
-  },
   TextHeader: {
-    marginLeft: 'auto',
-    alignSelf: 'center',
     fontSize: 19,
     color: '#555',
     paddingBottom: 4,
-    marginRight: -40,
+    minWidth:30,
   },
   sidebar: {
     flexDirection: 'row',
-    paddingRight: 10,
+    justifyContent: 'space-between',
+    alignItems:'center',
+    paddingHorizontal: 10,
     width: '100%',
     height: 50,
     backgroundColor: '#fff',

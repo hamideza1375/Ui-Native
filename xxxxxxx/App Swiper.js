@@ -4,9 +4,7 @@ import Swiper from "./zzzzzzz/Swiper";
 
 
 
-
 const App = () => {
-
 
   return (
     <SafeAreaView>
